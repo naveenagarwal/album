@@ -1,0 +1,11 @@
+<div class="span12">
+  <h6 class="text-center">
+    Album - <%= @album.name.capitalize %>
+  </h6>
+</div>
+
+
+<div class="span12">
+  <p></p>
+  <%= render(partial: "show_photo", collection: @photos, as: :photo) %>
+</div>

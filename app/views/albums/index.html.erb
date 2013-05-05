@@ -1,0 +1,21 @@
+<% if @albums.present? %>
+  
+  <h2>My Albums</h2>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Photos count</th>
+      <th></th>
+    </tr>
+
+  <%= render(partial: "album_list", collection: @albums, as: :album) %>
+
+  </table>
+
+<% else %>
+  <h2>
+    Create your first album :-)
+  </h2>
+
+<% end %>

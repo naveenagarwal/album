@@ -1,0 +1,36 @@
+<% if @album.errors.present? %>
+  
+  <div class="alert fade in alert-error">
+    Error saving record
+    <ul>
+      <% @album.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+<% end %>
+
+<%= form_for(@album, url: albums_path, html: { multipart: true} ) do |f| -%>
+  
+  <p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    Add photos <br />
+
+    <%= f.fields_for(:photos) do |photo_builder| %>
+      <%= render(partial: 'photo_file_fields', locals: { f: photo_builder }) %>
+    <% end %>
+
+    <%= link_to("Add more", "#", id: "add-more-photos") %>
+  </p>
+
+  <p>
+    <%= f.submit "Save", :disable_with => 'Saveing...' %>
+  </p>
+<% end -%>

@@ -1,0 +1,10 @@
+<div class="span2">
+  <%= link_to(photo.pic.url(:original), target: "_blank") do %>
+    <span>
+      <%= image_tag(photo.pic.url(:thumb)) %>
+    </span>
+  <% end %>
+  <p class="text-left">
+    Tags - <%= photo.tag_names %>
+  </p>
+</div>
